@@ -43,10 +43,29 @@ datos[c(1,4),]
 table(datos$sexo)
 
 ####################### Leer la encuesta multiproposito de Bogotá (EMB) ####
-# Cambiar la carpeta 
+# Cambiar la carpeta  en Session Working Directory Choose 
 setwd("~/Laboral2020/Universidad Externando/gobierno20202/clases")
-setwd("C:/Users/Home/Documents/Laboral2020/Universidad Externando/gobierno20202/clases")
+# También así
+#setwd("C:/Users/Home/Documents/Laboral2020/Universidad Externando/gobierno20202/clases")
 dir()
+#emb <- read.csv("~/Laboral2020/Universidad Externando/gobierno20202/clases/variables_adicionales_hogar_v3.txt", sep=";")
+#emb <- read.csv("variables_adicionales_hogar_v3.txt", sep=";")
 
 emb <- read.csv2("variables_adicionales_hogar_v3.txt")
 names(emb)
+
+# Cual es el promedio del ingreso de los hogares bogotanos
+mean(emb$INGRESOS_HOG)
+median(emb$INGRESOS_HOG)
+summary(emb$INGRESOS_HOG)
+hist(emb$INGRESOS_HOG)
+hist(emb$INGRESOS_HOG,breaks = 300)
+boxplot(emb$INGRESOS_HOG)
+boxplot(emb$INGRESOS_HOG, ylim = c(0, 20000000))
+
+hist(emb$INGRESOS_HOG, xlim = c(0, 20000000), breaks = 300)
+# breaks: número de clases 
+skewness(emb$INGRESOS_HOG)
+
+table(emb$INGRESOS_HOG == 0)
+prop.table(table(emb$INGRESOS_HOG == 0)) * 100
