@@ -149,3 +149,50 @@ t.test(d, alternative = "greater", conf.level = 0.95)
 # Forma 2
 t.test(despues, antes, alternative = "greater", paired = T, 
        conf.level = 0.95)
+
+
+
+
+# Intervalo de confianza
+
+# Diferencias de medias
+# Población 1 es área urbana
+# Población 2 es área rural
+# y1: Ingreso de trabajadores área urbana
+# y2: ingreso de trbaadores área rural
+set.seed(6112020)
+y1 <- rnorm(n = 350, mean = 940000, sd = 250000)
+set.seed(6112020)
+y2 <- rnorm(n = 300, mean = 910000, sd = 220000)
+
+summary(y1)
+summary(y2)
+
+t.test(x = y1, y = y2, alternative = "two.sided",
+       conf.level = 0.95)
+
+t.test(x = y1, y = y2,
+       conf.level = 0.95)
+
+
+
+
+
+# Intervalo de confianza
+# Población trabajadores
+set.seed(6112020)
+y <- rnorm(n = 200,  mean = 800000, sd = 800000)
+summary(y)
+t.test(y,  conf.level = 0.9)
+# Conclusión coo pvalor es menor a 0.1, rechazo H0: 
+# Los trabajadores ganan menos de un salario mínimo
+
+
+# Más de intervalos:
+
+#https://github.com/josezea/inferencia
+# proproció
+# diferencia de proporciones
+
+
+# diferencia de medias: t.test(x1, x2, conf.level = )
